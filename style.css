@@ -1,0 +1,181 @@
+/* Left Panel */
+.left-panel {
+    position: fixed; /* Cố định phần tử này ngay cả khi cuộn */
+    top: 0;
+    left: 100px; /* Để một khoảng cách nhẹ từ lề trái */
+    width: 30%;
+    height: 100vh; /* Chiều cao đầy đủ */
+    z-index: 100; /* Đảm bảo phần tử này nằm trên các phần tử khác */
+    padding-top: 50px; /* Để khoảng cách từ trên xuống cho nội dung */
+}
+
+.left-panel > * {
+    margin-bottom: 100px; /* Khoảng cách giữa các phần tử trong panel */
+}
+
+/* Right Panel */
+.right-panel {
+    margin-left: 30%; /* Đảm bảo phần bên phải không bị chồng lên phần trái cố định */
+    padding-left: 20px; /* Đảm bảo văn bản không bị dính vào lề */
+}
+
+/* Body */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #0a192f;
+    color: #8892b0;
+    padding-left: 30%; /* Đảm bảo không bị tràn */
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #dfe5ec; /* Văn bản nổi bật: Xám sáng, dùng cho tiêu đề */
+}
+
+/* Navigation Links */
+nav {
+    display: flex;
+    justify-content: center; /* Căn giữa ngang */
+    align-items: center;     /* Căn giữa dọc nếu cần */
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #64ffda;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #005999;
+}
+
+/* Project Cards */
+.project-card {
+    background: #112240; /* Nền phụ: Xanh navy nhạt hơn */
+    border: 2px solid transparent; /* Viền ban đầu ẩn đi */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Thêm transition cho border */
+    position: relative;
+}
+
+.project-card:hover {
+    background: rgba(0, 89, 153, 0.1); /* Thay đổi nền khi hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Thêm bóng đổ mạnh hơn */
+}
+
+.project-details {
+    color: #dfe5ec; /* Đổi màu văn bản thành màu nổi bật */
+    display: none;
+}
+
+.project-card:hover .project-details {
+    display: block;
+    margin-top: 10px;
+}
+
+/* Tech Buttons */
+.tech-buttons {
+    margin: 10px 0;
+}
+
+.tech-buttons button {
+    background-color: transparent; /* Không có màu nền */
+    color: #64ffda; /* Màu chữ xanh */
+    border: none; /* Không có viền */
+    border-radius: 20px;
+    padding: 8px 12px;
+    margin: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(100, 255, 218, 0.5); /* Đổ bóng nhẹ */
+    transition: all 0.3s ease;
+}
+
+.tech-buttons button:hover {
+    background-color: rgba(100, 255, 218, 0.1); /* Hover nhẹ nhàng */
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.8); /* Đổ bóng rõ hơn khi hover */
+    color: white;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    color: #a0aec0; /* màu xám nhẹ */
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.tab-button::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #4a5568; /* màu xám cho các tab không active */
+    transition: background-color 0.3s, width 0.3s;
+}
+
+.tab-button:hover {
+    color: #cbd5e0;
+}
+
+.tab-button:hover::before {
+    background-color: #cbd5e0;
+    width: 30px;
+}
+
+/* Active Tab */
+.tab-button.active {
+    color: #ffffff; /* Tab đang active có màu sáng */
+    font-weight: bold; /* Làm đậm tab đang active */
+}
+
+/* Tab Content */
+.tab-content {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #112240;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .left-panel {
+        position: relative;
+        width: 100%;
+        left: 0;
+        padding-top: 20px;
+    }
+
+    .right-panel {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
